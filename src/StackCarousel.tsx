@@ -20,7 +20,7 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const DEFAULT_CARD_WIDTH = 220;
 const DEFAULT_CARD_HEIGHT = 300;
 const DEFAULT_SCALE_SIDE = 0.8;
-const DEFAULT_OPACITY_SIDE = 0.6;
+const DEFAULT_OPACITY_SIDE = 0.4;
 
 export type RenderItemInfo<T> = {
   item: T;
@@ -86,31 +86,37 @@ function CarouselCard<T>({
       Extrapolation.EXTEND
     );
 
-    const scale = interpolate(
-      position,
-      [-1, 0, 1],
-      [scaleSide, 1, scaleSide],
-      Extrapolation.CLAMP
-    );
+    const absPosition = position < 0 ? -position : position;
 
-    const opacity = interpolate(
-      position,
-      [-2, -1, 0, 1, 2],
-      [0.1, opacitySide, 1, opacitySide, 0.1],
-      Extrapolation.CLAMP
-    );
+    // Progressive scale: each item is scaleSide times smaller than the previous
+    // Image 1: 1, Image 2: 0.9, Image 3: 0.81, Image 4: 0.729, etc.
+    const scale = Math.pow(scaleSide, absPosition);
 
-    const zIndex = interpolate(
-      position,
-      [-1, 0, 1],
-      [1, 10, 1],
+    const zIndex = 10 - absPosition;
+
+    return {
+      transform: [{ translateX: translateXValue }, { scale }],
+      // opacity,
+      zIndex: Math.round(zIndex),
+    };
+  });
+
+  // Animated overlay that fades in/out based on position
+  const overlayStyle = useAnimatedStyle(() => {
+    const dragOffset = translateX.value / cardOffset;
+    const position = index - activeIndex.value + dragOffset;
+    const absPosition = position < 0 ? -position : position;
+
+    // Overlay opacity: 0 when active, increases as it moves away
+    const overlayOpacity = interpolate(
+      absPosition,
+      [0, 0.5, 1],
+      [0, opacitySide / 2, opacitySide],
       Extrapolation.CLAMP
     );
 
     return {
-      transform: [{ translateX: translateXValue }, { scale }],
-      opacity,
-      zIndex: Math.round(zIndex),
+      opacity: overlayOpacity,
     };
   });
 
@@ -125,6 +131,20 @@ function CarouselCard<T>({
   return (
     <Animated.View style={combinedStyle as any}>
       {renderItem({ item, index })}
+      <Animated.View
+        style={[
+          {
+            backgroundColor: '#fff',
+            width: cardWidth,
+            height: cardHeight,
+            position: 'absolute',
+            top: 0,
+            left: 0,
+          },
+          overlayStyle,
+        ]}
+        pointerEvents="none"
+      />
     </Animated.View>
   );
 }
@@ -134,7 +154,7 @@ function StackCarousel<T>({
   renderItem,
   cardWidth = DEFAULT_CARD_WIDTH,
   cardHeight = DEFAULT_CARD_HEIGHT,
-  cardOffsetRatio = 0.3,
+  cardOffsetRatio = 0.25,
   scaleSide = DEFAULT_SCALE_SIDE,
   opacitySide = DEFAULT_OPACITY_SIDE,
   containerStyle,

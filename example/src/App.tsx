@@ -3,11 +3,12 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StackCarousel } from '../../src';
 
 const SAMPLE_IMAGES = [
-  'https://picsum.photos/id/1/400/600',
-  'https://picsum.photos/id/2/400/600',
-  'https://picsum.photos/id/3/400/600',
-  'https://picsum.photos/id/4/400/600',
-  'https://picsum.photos/id/5/400/600',
+  'https://i.ebayimg.com/images/g/0jwAAOSw~kpjBKEC/s-l1200.jpg',
+  'https://i.ebayimg.com/images/g/OTwAAOSwkMlkYceK/s-l1200.jpg',
+  'https://i.ebayimg.com/images/g/-tkAAOSw9uhjmqar/s-l1200.jpg',
+  'https://i.ebayimg.com/images/g/e3AAAOSwUQZkNQ48/s-l1200.jpg',
+  'https://media.karousell.com/media/photos/products/2023/5/8/ive_rei_photocard_1683551459_4aed2354_progressive.jpg',
+  'https://lilakshop.com/cdn/shop/files/IMG_0407_1_1024x1024.heic?v=1749214538',
 ];
 
 export default function App() {

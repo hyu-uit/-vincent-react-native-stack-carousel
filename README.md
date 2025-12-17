@@ -2,6 +2,15 @@
 
 A beautiful, performant stack carousel component for React Native with smooth animations and gesture support. Perfect for displaying images or custom content in a stacked card layout.
 
+## Demo
+
+<!-- Click the thumbnail image to watch the demo video -->
+[![Demo Video - Click to watch](https://i.ibb.co/xKjNJMRy/Simulator-Screenshot-i-Phone-17-Pro-2025-12-17-at-19-31-15.png)](https://drive.google.com/file/d/1-WChFJcbONg2-xta0yCYq4fYU5wTELRq/view?usp=sharing)
+
+<!-- To use your own thumbnail: -->
+<!-- 1. Add a thumbnail image (e.g., demo-thumbnail.png) to your repo root -->
+<!-- 2. Replace the placeholder URL above with: ./demo-thumbnail.png -->
+
 ## Features
 
 - 🎨 **Stacked card layout** - Cards stack behind each other with progressive scaling

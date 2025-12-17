@@ -1,6 +1,6 @@
 {
   "name": "@vincent-hyu-uit/react-native-stack-carousel",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "description": "React native stack carousel",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -20,6 +20,7 @@
     "cpp",
     "*.podspec",
     "react-native.config.js",
+    "README.md",
     "!ios/build",
     "!android/build",
     "!android/gradle",

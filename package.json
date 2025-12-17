@@ -1,5 +1,5 @@
 {
-  "name": "@vincent/react-native-stack-carousel",
+  "name": "@vincent-hyu-uit/react-native-stack-carousel",
   "version": "0.1.0",
   "description": "React native stack carousel",
   "main": "./lib/module/index.js",

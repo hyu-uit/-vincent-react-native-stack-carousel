@@ -1,5 +1,4 @@
 import { Image, StyleSheet } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StackCarousel } from '../../src';
 
 const SAMPLE_IMAGES = [
@@ -13,18 +12,12 @@ const SAMPLE_IMAGES = [
 
 export default function App() {
   return (
-    <GestureHandlerRootView style={styles.container}>
-      <StackCarousel
-        data={SAMPLE_IMAGES}
-        renderItem={({ item }) => (
-          <Image
-            source={{ uri: item }}
-            style={styles.card}
-            resizeMode="cover"
-          />
-        )}
-      />
-    </GestureHandlerRootView>
+    <StackCarousel
+      data={SAMPLE_IMAGES}
+      renderItem={({ item }) => (
+        <Image source={{ uri: item }} style={styles.card} resizeMode="cover" />
+      )}
+    />
   );
 }
 

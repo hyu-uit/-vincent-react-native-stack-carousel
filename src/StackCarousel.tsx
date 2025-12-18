@@ -1,7 +1,11 @@
 import React from 'react';
 import { Dimensions, View } from 'react-native';
 import type { ViewStyle } from 'react-native';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import {
+  Gesture,
+  GestureDetector,
+  GestureHandlerRootView,
+} from 'react-native-gesture-handler';
 import type {
   GestureUpdateEvent,
   PanGestureHandlerEventPayload,
@@ -200,7 +204,7 @@ function StackCarousel<T>({
   };
 
   return (
-    <View style={[dynamicContainerStyle, containerStyle]}>
+    <GestureHandlerRootView style={[dynamicContainerStyle, containerStyle]}>
       <GestureDetector
         gesture={
           data.length > 1 ? panGesture : Gesture.Exclusive(Gesture.Tap())
@@ -225,7 +229,7 @@ function StackCarousel<T>({
           ))}
         </View>
       </GestureDetector>
-    </View>
+    </GestureHandlerRootView>
   );
 }
 

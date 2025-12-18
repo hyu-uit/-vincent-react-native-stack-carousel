@@ -2449,7 +2449,7 @@ PODS:
     - React-perflogger (= 0.83.0)
     - React-utils (= 0.83.0)
     - SocketRocket
-  - ReactNativeStackCarousel (0.1.0):
+  - ReactNativeStackCarousel (0.1.15):
     - boost
     - DoubleConversion
     - fast_float
@@ -3020,7 +3020,7 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: ebcf3a78dc1bcdf054c9e8d309244bade6b31568
   ReactCodegen: 11c08ff43a62009d48c71de000352e4515918801
   ReactCommon: 424cc34cf5055d69a3dcf02f3436481afb8b0f6f
-  ReactNativeStackCarousel: 4c688fa0b53856f2e7e3e3a77c7f79d35e750103
+  ReactNativeStackCarousel: 82a0b5ad1fa385a29dbaf48b356ff593dd421f88
   RNGestureHandler: 73726300d4c5ca4d80378cae85f9dad8908b3289
   RNReanimated: c86c4fdafbeb0ecff9ae8bbc65a16dd09c0e2fde
   RNWorklets: 69f7239afaf3a156f7f9549eeb0ae8d02adc095f

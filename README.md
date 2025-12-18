@@ -5,7 +5,14 @@ A beautiful, performant stack carousel component for React Native with smooth an
 ## Demo
 
 <!-- Click the thumbnail image to watch the demo video -->
-[![Demo Video - Click to watch](https://i.ibb.co/xKjNJMRy/Simulator-Screenshot-i-Phone-17-Pro-2025-12-17-at-19-31-15.png)](https://drive.google.com/file/d/1-WChFJcbONg2-xta0yCYq4fYU5wTELRq/view?usp=sharing)
+[Watch Demo Video](https://drive.google.com/file/d/1-WChFJcbONg2-xta0yCYq4fYU5wTELRq/view?usp=sharing)
+
+<p align="center">
+  <img src="https://iili.io/fcMN9lj.png" alt="Screenshot 1" width="200" />
+  <img src="https://iili.io/fcMg1Nj.png" alt="Screenshot 2" width="200" />
+  <img src="https://iili.io/fcMglHu.png" alt="Screenshot 3" width="200" />
+</p>
+
 
 <!-- To use your own thumbnail: -->
 <!-- 1. Add a thumbnail image (e.g., demo-thumbnail.png) to your repo root -->
@@ -31,7 +38,7 @@ npm install @vincent-hyu-uit/react-native-stack-carousel
 This library requires the following peer dependencies:
 
 ```sh
-npm install react-native-gesture-handler react-native-reanimated react-native-worklets
+npm install react-native-gesture-handler react-native-reanimated
 ```
 
 ### iOS Setup
@@ -55,8 +62,7 @@ No additional setup required for Android.
 
 ```tsx
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Image, StyleSheet, View } from 'react-native';
 import { StackCarousel } from '@vincent-hyu-uit/react-native-stack-carousel';
 
 const IMAGES = [
@@ -67,14 +73,14 @@ const IMAGES = [
 
 export default function App() {
   return (
-    <GestureHandlerRootView style={styles.container}>
+    <View style={styles.container}>
       <StackCarousel
         data={IMAGES}
         renderItem={({ item }) => (
           <Image source={{ uri: item }} style={styles.card} resizeMode="cover" />
         )}
       />
-    </GestureHandlerRootView>
+    </View>
   );
 }
 
